@@ -348,10 +348,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         <select class="form-control" id="calc-service">
                             <option value="">Choose a service</option>
                             <option value="15000-35000">Custom Suits (₹15,000 - ₹35,000)</option>
-                            <option value="2500-4000">Business Shirts (₹2,500 - ₹4,000)</option>
-                            <option value="3000-5000">Formal Trousers (₹3,000 - ₹5,000)</option>
+                            <option value="1000-400">Business Shirts (₹1000 - ₹400)</option>
+                            <option value="500-2000">Formal Trousers (₹500 - ₹2,000)</option>
                             <option value="12000-25000">Sherwanis (₹12,000 - ₹25,000)</option>
-                            <option value="300-1500">Alterations (₹300 - ₹1,500)</option>
+                            <option value="300-1500">Alterations (₹50 - ₹500)</option>
                             <option value="20000-50000">Wedding Collection (₹20,000 - ₹50,000)</option>
                         </select>
                     </div>
@@ -363,8 +363,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         <label class="form-label">Fabric Type</label>
                         <select class="form-control" id="calc-fabric">
                             <option value="1">Standard (+0%)</option>
-                            <option value="1.5">Premium (+50%)</option>
-                            <option value="2">Luxury (+100%)</option>
+                            <option value="1.5">Premium (+30%)</option>
+                            <option value="2">Luxury (+80%)</option>
                         </select>
                     </div>
                     <div style="margin-top: 1rem; padding: 1rem; background: #f0f8ff; border-radius: 8px; border: 2px solid #1a237e;">
