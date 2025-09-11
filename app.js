@@ -546,3 +546,52 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+document.addEventListener('DOMContentLoaded', function () {
+  const contactForm = document.getElementById('contact-form');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(contactForm);
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        // Remove any old messages before showing a new one
+        const oldMsg = document.querySelector('.form-message');
+        if (oldMsg) oldMsg.remove();
+
+        const messageBox = document.createElement('div');
+        messageBox.classList.add('form-message');
+        messageBox.style.marginTop = "15px";
+        messageBox.style.fontWeight = "bold";
+
+        if (response.ok) {
+          messageBox.textContent = "✅ Your message has been successfully submitted!";
+          messageBox.style.color = "#28a745";
+          contactForm.reset();
+        } else {
+          const data = await response.json();
+          if (data.errors && data.errors.length > 0) {
+            messageBox.textContent = "❌ " + data.errors.map(err => err.message).join(", ");
+          } else {
+            messageBox.textContent = "❌ Something went wrong. Please try again.";
+          }
+          messageBox.style.color = "#dc3545";
+        }
+
+        contactForm.appendChild(messageBox);
+        setTimeout(() => messageBox.remove(), 5000);
+
+      } catch (error) {
+        alert("⚠️ Network error. Please check your internet connection.");
+      }
+    });
+  }
+});
+
